@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "extreme-narratives";
+  src:url("/fonts/extreme-narratives.eot");
+  src:url("/fonts/extreme-narratives.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/extreme-narratives.woff") format("woff"),
+    url("/fonts/extreme-narratives.ttf") format("truetype"),
+    url("/fonts/extreme-narratives.svg#extreme-narratives") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "extreme-narratives" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="ex-"]:before,
+[class*=" ex-"]:before {
+  font-family: "extreme-narratives" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// same as Bootstrap's 'fa' class for icon font
+.iconFont {
+	display: inline-block;
+  font: normal normal normal 14px/1 shop-luxury-styles;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ex-text:before {
+  content: "\61";
+}
+.ex-eye:before {
+  content: "\62";
+}
+.ex-analysis:before {
+  content: "\63";
+}

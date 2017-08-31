@@ -1,8 +1,13 @@
 {
   "presets":[
-    "es2015", "react"
+    "es2015", "react", "stage-2"
   ],
-  "plugins": [
-    "styled-jsx/babel"
-  ]
+  "env": {
+    "development": {
+      "presets": ["react-hmre"]
+    },
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  }
 }

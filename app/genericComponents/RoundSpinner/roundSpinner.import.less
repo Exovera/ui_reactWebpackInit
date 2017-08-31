@@ -1,0 +1,76 @@
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+
+.round-spinner {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  animation: spinner 1500ms linear infinite;
+  .round-spinner__ball-1,
+  .round-spinner__ball-2,
+  .round-spinner__ball-3,
+  .round-spinner__ball-4,
+  .round-spinner__ball-5,
+  .round-spinner__ball-6,
+  .round-spinner__ball-7,
+  .round-spinner__ball-8 {
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #367cb8;
+  }
+  .round-spinner__ball-1 {
+    opacity: 0;
+    left: 75%;
+    top: 25%;
+    margin: -6px 0 0 -2px;
+  }
+  .round-spinner__ball-2 {
+    opacity: 0.14;
+    top: 50%;
+    margin-top: -4px;
+    right: 0;
+  }
+  .round-spinner__ball-3 {
+    opacity: 0.29;
+    left: 75%;
+    top: 75%;
+    margin: -2px 0 0 -2px;
+  }
+  .round-spinner__ball-4 {
+    opacity: 0.43;
+    bottom: 0;
+    left: 50%;
+    margin-left: -4px;
+  }
+  .round-spinner__ball-5 {
+    opacity: 0.57;
+    left: 25%;
+    top: 75%;
+    margin: -2px 0 0 -6px;
+  }
+  .round-spinner__ball-6 {
+    opacity: 0.72;
+    top: 50%;
+    margin-top: -4px;
+    left: 0;
+  }
+  .round-spinner__ball-7 {
+    opacity: 0.86;
+    left: 25%;
+    top: 25%;
+    margin: -6px 0 0 -6px;
+  }
+  .round-spinner__ball-8 {
+    opacity: 1.0;
+    top: 0;
+    left: 50%;
+    margin-left: -4px;
+  }
+}
