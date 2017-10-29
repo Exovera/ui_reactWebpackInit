@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 import RoundSpinner from 'genericComponents/RoundSpinner';
 import Main from 'layout/Main';
@@ -7,6 +8,7 @@ import Main from 'layout/Main';
 import 'config/less/main.less';
 
 const AppLayout = (props) => {
+  const layoutClass = classnames('app-layout', { hideFocus: !props.showFocus });
   let payload;
   if (!props.ready) {
     payload = <RoundSpinner />;
@@ -16,7 +18,7 @@ const AppLayout = (props) => {
               </div>;
   }
   return (
-    <div className="app-layout">
+    <div className={layoutClass}>
       {payload}
     </div>
   );
