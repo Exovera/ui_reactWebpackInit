@@ -10,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
   console.log(state);
   // console.log(ownProps)
   return {
+    showFocus: state.showFocus,
     ready: state.dataReady,
   };
 };

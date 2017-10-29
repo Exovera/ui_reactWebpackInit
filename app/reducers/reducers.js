@@ -1,4 +1,4 @@
-/* jshint esversion: 6 */
+/* eslint no-tabs: "off", indent: "off" */
 
 // This is set up as one reducer for the whole app.
 // If this becomes unwieldly, use combineReducers from the reduce-reducers package,
@@ -6,15 +6,32 @@
 
 
 const initialState = {
-  dataReady: false,
+  dataReady: true,
+
+  windowSize: { height: 0, width: 0 },
+  showFocus: false, // show blue outline for focus?
 };
 
-const redux = function ( state = initialState, action ) { /* jshint ignore: line */
-  switch ( action.type ){
-
-		case 'testRedux':
+const redux = (state = initialState, action) => {
+  switch (action.type) {
+		case 'requestingData':
 			return Object.assign({}, state, {
-				dataReady: true,
+				// dataReady: true,
+			});
+		case 'receiveData':
+				console.log(action.data);
+			return Object.assign({}, state, {
+				instructors: action.data.items,
+				cmsAssets: action.data.includes.Asset,
+			});
+    // UI
+		case 'setWindowSize':
+			return Object.assign({}, state, {
+				windowSize: action.windowSize,
+			});
+		case 'putFocusBack':
+			return Object.assign({}, state, {
+				showFocus: true,
 			});
 
     default:
