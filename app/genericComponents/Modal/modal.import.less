@@ -1,0 +1,254 @@
+.modal {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100vh;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: -999;
+  transition: opacity 0ms linear 400ms,
+              visibility 0ms linear 400ms,
+              z-index 0ms linear 400ms;
+  .modal__box {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: transform 350ms ease-out 50ms;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .modal__shadowbox {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.5;
+    transition: opacity 350ms ease-out 50ms;
+    z-index: 0;
+  }
+  .modal__x {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 15px;
+    right: 15px;
+    background-image: url( ../../assets/images/svg/x.svg );
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.3;
+    cursor: pointer;
+    z-index: 3;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  .modal__back {
+    position: absolute;
+    height: 20px;
+    width: 120px;
+    top: 15px;
+    left: 15px;
+    opacity: 1;
+    cursor: pointer;
+    z-index: 3;
+    span {
+      margin-left: 10px;
+      .smallCaps();
+      font-size: 14px;
+      color: @text-2;
+    }
+  }
+  .modal__back__arrow {
+    display: inline-block;
+    height: 10px;
+    width: 20px;
+    top: 2px;
+    left: 0;
+    background-image: url( ../../assets/images/svg/long-arrow.svg );
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.modal.darkUI {
+  .modal__box {
+    background-color: @grey-3;
+  }
+  .modal__x {
+    background-image: url( ../../assets/images/svg/x-sky.svg );
+    opacity: 1;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  .modal__back {
+    span {
+      color: @sky-1;
+    }
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  .modal__back__arrow {
+    background-image: url( ../../assets/images/svg/long-arrow-sky.svg );
+  }
+}
+
+
+// Entry Direction
+.modal.top {
+  .modal__box {
+    margin-top: -500px;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.modal.bottom {
+  .modal__box {
+    transform: translate3d(0, 100vh, 0);
+  }
+}
+
+.modal.left {
+  .modal__box {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.modal.right {
+  .modal__box {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.modal.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  z-index: 999;
+  transition: none;
+  .modal__box {
+    transform: translate3d(0,0,0);
+  }
+}
+.modal.top.open {
+  // negative margins don't transition well in FireFox
+  .modal__box {
+    transform: translate3d(0,500px,0);
+  }
+}
+.modal.fade {
+  transition: opacity 350ms linear 50ms,
+              visibility 0ms linear 400ms,
+              z-index 0ms linear 400ms;
+}
+.modal.fade.open {
+  transition: opacity 350ms linear 50ms;
+}
+.modal.fadeOut {
+  transition: opacity 350ms linear 50ms,
+              visibility 0ms linear 400ms,
+              z-index 0ms linear 400ms;
+}
+.modal.fadeOut.open {
+  transition: none;
+}
+
+// Size
+.modal.full {
+  .modal__box {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 50px;
+    border-radius: 0;
+  }
+}
+.modal.huge {
+  .modal__box {
+    max-height: 80%;
+    width: 80%;
+    top: 10%;
+    left: 10%;
+    padding: 50px;
+  }
+}
+.modal.large {
+  .modal__box {
+    height: 500px;
+    width: 700px;
+    margin: -250px 0 0 -350px;
+    top: 50%;
+    left: 50%;
+    padding: 50px;
+  }
+}
+.modal.medium {
+  .modal__box {
+    height: 350px;
+    width: 500px;
+    margin: -175px 0 0 -250px;
+    top: 50%;
+    left: 50%;
+    padding: 40px;
+  }
+}
+.modal.small {
+  .modal__box {
+    height: 250px;
+    width: 400px;
+    margin: -125px 0 0 -200px;
+    top: 50%;
+    left: 50%;
+    padding: 30px;
+  }
+}
+.modal.tiny {
+  .modal__box {
+    height: 150px;
+    width: 250px;
+    margin: -75px 0 0 -125px;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+  }
+}
+
+// Scrollbar
+.modal.scrollbar {
+  .modal__box {
+    overflow-y: auto;
+  }
+}
+.modal.full.scrollbar { // prevent jump when scrollbar becomes enabled
+  .modal__box {
+    overflow-y: scroll;
+  }
+}
+
+
+// Hack size
+.modal.huge-article {
+  .modal__box {
+    height: 80%;
+    width: 80%;
+    top: 10%;
+    left: 10%;
+    padding: 50px;
+  }
+}
+
+// No padding
+
+.modal.noPadding {
+  .modal__box {
+    padding: 0;
+  }
+}
