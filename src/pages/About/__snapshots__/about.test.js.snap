@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About page should render self. 1`] = `
+<About
+  activeNarrative="all"
+>
+  <div
+    className="about"
+  >
+    hello, I'm the about page
+  </div>
+</About>
+`;

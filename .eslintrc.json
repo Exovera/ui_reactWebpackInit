@@ -1,0 +1,42 @@
+{
+	"extends": [
+		"airbnb",
+		"plugin:prettier/recommended"
+	],
+	"env": {
+		"es6": true,
+		"browser": true
+	},
+	"plugins": [
+		"prettier"
+	],
+	"rules": {
+		"arrow-body-style": 0,
+		"dot-notation": 0,
+		"function-paren-newline": 0,
+		"no-use-before-define": 0,
+		"no-else-return": 0,
+		"no-console": 0,
+		"no-underscore-dangle": 0,
+		"no-nested-ternary": 0,
+		"no-plusplus": 0,
+		"no-tabs": 0,
+		"indent": 0,
+		"import/no-extraneous-dependencies": 0,
+		"import/extensions": 0,
+		"prettier/prettier": "error",
+		"react/jsx-indent": 0,
+		"react/jsx-indent-props": [
+			2,
+			"tab"
+		],
+		"react/jsx-curly-brace-presence": [
+			true,
+			{
+				"props": "never",
+				"children": "never"
+			}
+		],
+		"jsx-quotes": 0
+	}
+}

@@ -1,131 +1,96 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-require('babel-polyfill');
-
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './app/index.html',
-  filename: 'index.html',
-  // favicon: 'app/assets/images/favicon.ico',
-  inject: 'body',
-});
-
-let sourceMap = 'eval-source-map';
-
-// Check if build is running in production mode, then change the sourcemap type
-if (process.env.NODE_ENV === 'production') {
-  sourceMap = 'source-map';
-}
+const path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const Visualizer = require("webpack-visualizer-plugin");
 
 module.exports = {
-  entry: ['babel-polyfill', './app/index.js'],
-  resolve: {
-    modules: [
-      path.resolve('./app'),
-      path.resolve('./node_modules'),
-    ],
-  },
-  output: {
-    path: path.resolve('dist'),
-    filename: '[name]',
-  },
-  devtool: sourceMap,
-  devServer: {
-    compress: true,
-    // disableHostCheck: true,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: 'babel-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.jsx$/,
-        use: 'babel-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.less$/,
-        use: [
-          {
-            loader: 'style-loader', // creates style nodes from JS strings
-          }, {
-            loader: 'css-loader', // translates CSS into CommonJS
-          }, {
-            loader: 'postcss-loader',
-            options: {
-              plugins: function () {
-                return [
-                  require('autoprefixer')
-                ];
-              },
-            },
-          }, {
-            loader: 'less-loader', // compiles LESS to CSS
-          }
-        ],
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: 'style-loader', // creates style nodes from JS strings
-          }, {
-            loader: 'css-loader', // translates CSS into CommonJS
-          }, {
-            loader: 'postcss-loader',
-            options: {
-              plugins: function () {
-                return [
-                  require('autoprefixer')
-                ];
-              },
-            },
-          }, {
-            loader: 'sass-loader', // compiles SASS to CSS
-          }
-        ],
-      },
-      {
-        test: /\.svg/,
-        use: [{
-          loader: 'file-loader',
-        }],
-      },
-      {
-        test: /\.png/,
-        use: [{
-          loader: 'file-loader',
-        }],
-      },
-    ],
-  },
-  plugins: [
-    HtmlWebpackPluginConfig,
-    new webpack.optimize.CommonsChunkPlugin('common.js'),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true,
-      },
-      output: {
-        comments: false,
-      },
-    }),
-    new webpack.optimize.AggressiveMergingPlugin(),
-  ],
+	resolve: {
+		modules: [path.resolve("./src"), path.resolve("./node_modules")],
+	},
+	module: {
+		rules: [
+			{
+				test: /\.(js|jsx)$/,
+				exclude: /node_modules/,
+				use: {
+					loader: "babel-loader",
+				},
+			},
+			{
+				test: /\.html$/,
+				use: [
+					{
+						loader: "html-loader",
+						options: { minimize: true },
+					},
+				],
+			},
+			{
+				test: /\.css$/,
+				use: ["style-loader", "css-loader"],
+			},
+			{
+				test: /\.less$/,
+				use: [
+					{
+						loader: "style-loader", // creates style nodes from JS strings
+					},
+					{
+						loader: "css-loader", // translates CSS into CommonJS
+					},
+					{
+						loader: "postcss-loader",
+						options: {
+							plugins() {
+								return [require("autoprefixer")];
+							},
+						},
+					},
+					{
+						loader: "less-loader", // compiles LESS to CSS
+					},
+				],
+			},
+			{
+				test: /\.(?:png|jpg|svg)$/,
+				loader: "url-loader",
+				query: {
+					// Inline images smaller than 10kb as data URIs
+					limit: 10000,
+				},
+			},
+		],
+	},
+	optimization: {
+		splitChunks: {
+			automaticNameDelimiter: "-",
+			chunks: "initial",
+			minSize: 30000,
+			// cacheGroups: {
+			// 	map: {
+			// 		test: "react-simple-maps",
+			// 		name: "map",
+			// 	},
+			// },
+			// cacheGroups: {
+			// 	commons: {
+			// 		name: "commons",
+			// 		chunks: "initial",
+			// 		minChunks: 2,
+			// 	},
+			// },
+		},
+	},
+	plugins: [
+		new CleanWebpackPlugin(["dist"]), // removes dist/ before each build
+		new HtmlWebPackPlugin({
+			template: "./src/index.html",
+			filename: "./index.html",
+			// favicon: "./src/assets/images/favicon.ico",
+		}),
+		// statically copies files to dist/
+		new CopyWebpackPlugin([{ from: "src/static/", to: "src/static/" }]),
+		new Visualizer(),
+	],
 };

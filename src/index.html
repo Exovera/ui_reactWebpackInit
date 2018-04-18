@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=0, minimal-ui=1">
+	<title>React Webpack Init</title>
+
+	<meta name='description' content='Boilerplate - change this' />
+	<meta name='keywords' content='' />
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:600|Raleway:300,400,500" rel="stylesheet">
+
+	<!-- DOM4 browser compatibility shim -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/dom4/1.8.3/dom4.js"></script>
+	<script src="src/static/modernizr-custom.js"></script>
+	<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+
+	<script>
+		/**
+		* detect IE
+		* returns version of IE or false, if browser is not Internet Explorer
+		*/
+		function detectIE() {
+			var ua = window.navigator.userAgent;
+
+			var msie = ua.indexOf('MSIE ');
+			if (msie > 0) {
+				// IE 10 or older => return version number
+				return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+			}
+
+			var trident = ua.indexOf('Trident/');
+			if (trident > 0) {
+				// IE 11 => return version number
+				var rv = ua.indexOf('rv:');
+				return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+			}
+
+			var edge = ua.indexOf('Edge/');
+			if (edge > 0) {
+				// Edge (IE 12+) => return version number
+				return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+			}
+
+			// other browser
+			return false;
+		}
+	</script>
+</head>
+
+<body>
+	<div id="root"></div>
+
+	<div id="browserFail"></div>
+
+	<script>
+		// Get IE or Edge browser version
+		var version = detectIE();
+
+		if (version && version <= 10) {
+			var updateMsg = '<div class="browser-fail"><p>It seems like your browser is outdated. Please upgrade to Internet Explorer 11, Edge, Chrome, or FireFox for the best experience.</p><div id="browserFail--close">X</div></div>';
+			document.getElementById('browserFail').innerHTML = updateMsg;
+			var closeFail = function () {
+				document.getElementById('browserFail').innerHTML = '';
+			}
+			document.getElementById('browserFail--close').addEventListener("click", closeFail);
+		}
+	</script>
+</body>
+
+</html>

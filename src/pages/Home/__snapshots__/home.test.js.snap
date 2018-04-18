@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page should render self. 1`] = `
+<Home
+  activeNarrative="all"
+>
+  <div
+    className="home"
+  >
+    Home sweet home
+  </div>
+</Home>
+`;

@@ -4,4 +4,4 @@ After cloning, run `yarn install`
 
 To start: `yarn start`
 
-Styles are run through LESS. Add each `.import.less` file to `app/config/less/main.less`
+Styles are run through LESS. Add each `.import.less` file to `src/config/less/main.less`
