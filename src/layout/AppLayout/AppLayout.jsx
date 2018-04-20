@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 
-import Navbar from "layout/Navbar";
+import LayoutRouter from "./LayoutRouter.jsx";
 import RoundSpinner from "genericComponents/RoundSpinner";
 
 // Single LESS entry point for the whole app
@@ -15,8 +15,7 @@ const AppLayout = (props) => {
 	} else {
 		payload = (
 			<div>
-				<Navbar />
-				<h1>Howdy World;</h1>
+				<LayoutRouter />
 			</div>
 		);
 	}
