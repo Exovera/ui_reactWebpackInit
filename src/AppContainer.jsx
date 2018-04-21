@@ -10,6 +10,9 @@ import reducers from "reducers";
 
 import AppLayout from "layout/AppLayout/index.js";
 
+// Single LESS entry point for the whole app
+import "config/less/main.less";
+
 const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 // AppContainer is the base data layer

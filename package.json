@@ -4,8 +4,8 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"build": "webpack --mode production",
-		"start": "webpack-dev-server --mode development --hot",
+		"build": "webpack --config webpack.prod.js",
+		"start": "webpack-dev-server --config webpack.dev.js --hot",
 		"test": "jest --coverage --runInBand",
 		"testcurrent": "jest --watch --runInBand -t 'Navbar'",
 		"watchtest": "jest --watch --runInBand",
@@ -17,6 +17,7 @@
 		"es6-promise": "^4.1.1",
 		"file-loader": "^0.11.2",
 		"isomorphic-fetch": "^2.2.1",
+		"mini-css-extract-plugin": "^0.4.0",
 		"moment": "^2.18.1",
 		"moment-timezone": "^0.5.13",
 		"path": "^0.12.7",

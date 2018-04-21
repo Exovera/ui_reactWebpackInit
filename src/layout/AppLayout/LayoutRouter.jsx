@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Navbar from "layout/Navbar";
-import About from "pages/About";
+import { AboutLoader } from "loaders";
 import Home from "pages/Home";
 
 const LayoutRouter = () => {
@@ -12,7 +12,7 @@ const LayoutRouter = () => {
 				<Navbar />
 
 				<Route exact path="/" component={Home} />
-				<Route path="/about" component={About} />
+				<Route path="/about" component={AboutLoader} />
 			</div>
 		</Router>
 	);

@@ -1,0 +1,281 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+input,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+q:before,
+blockquote:after,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+textarea {
+  overflow: auto;
+}
+a {
+  text-decoration: none;
+}
+.clearfix {
+  display: block;
+  zoom: 1;
+}
+.clearfix:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+body {
+  background-color: #fafafa;
+  overflow-y: scroll;
+}
+a,
+div,
+p,
+span {
+  transition: opacity 350ms ease-out 50ms, color 350ms ease-out 50ms, background-color 350ms ease-out 50ms;
+}
+.hideFocus *:focus {
+  outline: none!important;
+}
+.browser-fail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #f27210;
+  z-index: 4;
+}
+.browser-fail p {
+  padding: 5px 8%;
+  line-height: 120%;
+  text-align: center;
+  font-family: 'Raleway', Verdana, Geneva, sans-serif;
+  font-weight: 400;
+  color: #131c33;
+}
+.browser-fail #browserFail--close {
+  font-family: 'Open Sans', Verdana, Geneva, sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  position: absolute;
+  height: 12px;
+  right: 10px;
+  top: 50%;
+  margin-top: -10px;
+  color: #131c33;
+}
+.browser-fail #browserFail--close:hover {
+  color: #000;
+}
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.round-spinner {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  animation: spinner 1500ms linear infinite;
+}
+.round-spinner .round-spinner__ball-1,
+.round-spinner .round-spinner__ball-2,
+.round-spinner .round-spinner__ball-3,
+.round-spinner .round-spinner__ball-4,
+.round-spinner .round-spinner__ball-5,
+.round-spinner .round-spinner__ball-6,
+.round-spinner .round-spinner__ball-7,
+.round-spinner .round-spinner__ball-8 {
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #367cb8;
+}
+.round-spinner .round-spinner__ball-1 {
+  opacity: 0;
+  left: 75%;
+  top: 25%;
+  margin: -6px 0 0 -2px;
+}
+.round-spinner .round-spinner__ball-2 {
+  opacity: 0.14;
+  top: 50%;
+  margin-top: -4px;
+  right: 0;
+}
+.round-spinner .round-spinner__ball-3 {
+  opacity: 0.29;
+  left: 75%;
+  top: 75%;
+  margin: -2px 0 0 -2px;
+}
+.round-spinner .round-spinner__ball-4 {
+  opacity: 0.43;
+  bottom: 0;
+  left: 50%;
+  margin-left: -4px;
+}
+.round-spinner .round-spinner__ball-5 {
+  opacity: 0.57;
+  left: 25%;
+  top: 75%;
+  margin: -2px 0 0 -6px;
+}
+.round-spinner .round-spinner__ball-6 {
+  opacity: 0.72;
+  top: 50%;
+  margin-top: -4px;
+  left: 0;
+}
+.round-spinner .round-spinner__ball-7 {
+  opacity: 0.86;
+  left: 25%;
+  top: 25%;
+  margin: -6px 0 0 -6px;
+}
+.round-spinner .round-spinner__ball-8 {
+  opacity: 1.0;
+  top: 0;
+  left: 50%;
+  margin-left: -4px;
+}
+.navbar {
+  height: 60px;
+  width: 100%;
+  background-color: #d2d2d2;
+}
+.about {
+  height: 60px;
+  width: 100%;
+  background-color: #d2d2d2;
+}
+.home {
+  background-color: #fafafa;
+}
+
