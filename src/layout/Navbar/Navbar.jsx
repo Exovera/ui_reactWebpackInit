@@ -1,21 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { AboutLoader } from "loaders";
+
+import RouterLinks from "config/RouterLinks.jsx";
 
 const Navbar = () => {
 	return (
 		<div className="navbar">
-			<ul>
-				<li>
-					<Link to="/">Home</Link>
-				</li>
-				<li>
-					<Link onMouseOver={() => AboutLoader.preload()} to="/about">
-						About
-					</Link>
-				</li>
-			</ul>
+			<RouterLinks />
 		</div>
 	);
 };

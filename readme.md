@@ -11,6 +11,7 @@ The app has `react-router` installed, but it is easy to remove if necessary:
 
 - Remove `<LayoutRouter />` from `AppLayout.jsx` and replace with the SPA.
 - Remove `layout/Navbar/` - it is no longer necessary.
+- Remove `config/RouterLinks.jsx`
 
 ## Routing and S3
 To make the routing work elegantly, you need to set up a server side redirect to index.hmtl for each route.
