@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Basic should render Basic component 1`] = `
+<Basic
+  test={true}
+>
+  <div
+    className="basic"
+  >
+    <p>
+      basic
+    </p>
+  </div>
+</Basic>
+`;

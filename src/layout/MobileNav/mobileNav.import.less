@@ -1,0 +1,16 @@
+.mobile-nav {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 280px;
+	padding: 35px 0 15px 15px;
+	.reactWebpackInit-transition(transform);
+	background-color: blue;
+	z-index: 0;
+	overflow: auto;
+	transform: translate3d(-280px, 0, 0);
+}
+.mobile-nav.open {
+	transform: translate3d(0, 0, 0);
+}

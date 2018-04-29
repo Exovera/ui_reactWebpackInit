@@ -1,8 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import Navbar from "./Navbar.jsx";
-
-import { toggleSideMenu } from "actions/ui.js";
+import MobileNav from "./MobileNav.jsx";
 
 // mapStateToProps is a react-redux specific function
 // that injects the redux store, after filters. REQUIRED
@@ -12,20 +10,20 @@ const mapStateToProps = (state, ownProps) => {
 	// console.log(state);
 	// console.log(ownProps)
 	return {
-		// trends: state.base.trends,
+		sideMenuOpen: state.ui.sideMenuOpen,
 	};
 };
 
-// mapDispatchToProps is a react-redux specific
-// function that binds a function into the props
-// Default is: dispatch => ({ dispatch }), to this isn't necessary in simple uses
-const mapDispatchToProps = (dispatch, ownProps) => {
-	return {
-		clickHamburger: () => {
-			dispatch(toggleSideMenu());
-		},
-	};
-};
+// // mapDispatchToProps is a react-redux specific
+// // function that binds a function into the props
+// // Default is: dispatch => ({ dispatch }), to this isn't necessary in simple uses
+// const mapDispatchToProps = ( dispatch, ownProps ) => {
+//  return {
+//    open: () => {
+//      dispatch( emailSuccess( true ) );
+//    }
+//  };
+// };
 
 // const mergeProps = ( stateProps, actionProps, parentProps ) => ({
 // ...stateProps,
@@ -34,10 +32,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 // });
 
 // Combines everything, including Meteor data
-const NavbarContainer = connect(
-	mapStateToProps,
-	mapDispatchToProps
+const MobileNavContainer = connect(
+	mapStateToProps
+	// mapDispatchToProps
 	// mergeProps
-)(Navbar);
+)(MobileNav);
 
-export default NavbarContainer;
+export default MobileNavContainer;

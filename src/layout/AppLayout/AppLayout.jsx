@@ -13,7 +13,12 @@ const AppLayout = (props) => {
 	} else {
 		payload = (
 			<div>
-				<LayoutRouter history={props.history} router={props.router} />
+				<LayoutRouter
+					history={props.history}
+					router={props.router}
+					shieldClick={props.shieldClick}
+					sideMenuOpen={props.sideMenuOpen}
+				/>
 			</div>
 		);
 	}
@@ -23,6 +28,8 @@ const AppLayout = (props) => {
 AppLayout.propTypes = {
 	history: PropTypes.object.isRequired,
 	router: PropTypes.object.isRequired,
+	sideMenuOpen: PropTypes.bool.isRequired,
+	shieldClick: PropTypes.func.isRequired,
 };
 
 export default AppLayout;

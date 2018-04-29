@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import AppLayout from "./AppLayout.jsx";
 
+import { closeSideMenu } from "actions/ui.js";
+
 // mapStateToProps is a react-redux specific function
 // that injects the redux store, after filters. REQUIRED
 //    state = reduxStore
@@ -10,22 +12,23 @@ const mapStateToProps = (state, ownProps) => {
 	console.log(state);
 	// console.log(ownProps)
 	return {
-		showFocus: state.ui.showFocus,
 		ready: state.data.dataReady,
+		showFocus: state.ui.showFocus,
 		router: state.router,
+		sideMenuOpen: state.ui.sideMenuOpen,
 	};
 };
 
-// // mapDispatchToProps is a react-redux specific
-// // function that binds a function into the props
-// // Default is: dispatch => ({ dispatch }), to this isn't necessary in simple uses
-// const mapDispatchToProps = ( dispatch, ownProps ) => {
-//  return {
-//    open: () => {
-//      dispatch( emailSuccess( true ) );
-//    }
-//  };
-// };
+// mapDispatchToProps is a react-redux specific
+// function that binds a function into the props
+// Default is: dispatch => ({ dispatch }), to this isn't necessary in simple uses
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		shieldClick: () => {
+			dispatch(closeSideMenu());
+		},
+	};
+};
 
 // const mergeProps = ( stateProps, actionProps, parentProps ) => ({
 // ...stateProps,
@@ -35,8 +38,8 @@ const mapStateToProps = (state, ownProps) => {
 
 // Combines everything, including Meteor data
 const AppLayoutContainer = connect(
-	mapStateToProps
-	// mapDispatchToProps
+	mapStateToProps,
+	mapDispatchToProps
 	// mergeProps
 )(AppLayout);
 

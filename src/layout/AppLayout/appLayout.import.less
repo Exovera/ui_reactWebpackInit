@@ -1,3 +1,31 @@
 .app-layout {
-  
+  .app-layout__content-wrapper {
+		position: relative;
+		.reactWebpackInit-transition(transform);
+		transform: translate3d(0, 0, 0);
+	}
+	.app-layout__menu-open-clickshield {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: #000;
+
+		z-index: -100;
+		opacity: 0;
+		transition: opacity 350ms ease-out 50ms,
+								z-index 1ms ease-out 400;
+	}
+
+	// Menu open
+  .app-layout__content-wrapper.sideMenuOpen {
+		transform: translate3d(280px, 0, 0);
+	}
+	.app-layout__menu-open-clickshield.sideMenuOpen {
+		z-index: 100;
+		opacity: 0.3;
+		transition: opacity 350ms ease-out 50ms,
+								z-index 350ms ease-out 50ms;
+	}
 }

@@ -2,4 +2,38 @@
 	height: 60px;
 	width: 100%;
 	background-color: #d2d2d2;
+	.navbar__hamburger {
+		width: 20px;
+		height: 20px;
+		margin: 15px;
+		background-color: red;
+
+		display: none;
+	}
+
+	// Style router links for Navbar
+	.router-links {
+		text-align: left;
+		margin: 10px 20px;
+	}
+	.router-links__li {
+		display: inline-block;
+		margin: 0 15px;
+		vertical-align: middle;
+	}
+	.router-links__link {}
+	.router-links__li.home-link {}
+	.router-links__li.about-link {}
+	
+}
+
+@media all and (max-width: @hideNavbar) {
+	.navbar {
+		.navbar__hamburger {
+			display: block;
+		}
+		.router-links {
+			display: none;
+		}
+	}
 }
