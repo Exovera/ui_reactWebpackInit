@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import thunkMiddleware from "redux-thunk";
+import { routerMiddleware } from "react-router-redux";
+import createHistory from "history/createBrowserHistory";
 
 import { fetchData } from "actions/data.js";
 import { setWindowSize, putFocusBack } from "actions/ui.js";
@@ -13,7 +15,13 @@ import AppLayout from "layout/AppLayout/index.js";
 // Single LESS entry point for the whole app
 import "config/less/main.less";
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+// Create a history of your choosing (we're using a browser history in this case)
+const history = createHistory();
+
+// Build the middleware for intercepting and dispatching navigation actions
+const routerMiddlewareWithHistory = routerMiddleware(history);
+
+const store = createStore(reducers, applyMiddleware(thunkMiddleware, routerMiddlewareWithHistory));
 
 // AppContainer is the base data layer
 class AppContainer extends React.Component {
@@ -46,7 +54,7 @@ class AppContainer extends React.Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<AppLayout />
+				<AppLayout history={history} />
 			</Provider>
 		);
 	}

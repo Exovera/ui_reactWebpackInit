@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import classnames from "classnames";
 
 import LayoutRouter from "./LayoutRouter.jsx";
@@ -12,13 +13,16 @@ const AppLayout = (props) => {
 	} else {
 		payload = (
 			<div>
-				<LayoutRouter />
+				<LayoutRouter history={props.history} router={props.router} />
 			</div>
 		);
 	}
 	return <div className={layoutClass}>{payload}</div>;
 };
 
-AppLayout.propTypes = {};
+AppLayout.propTypes = {
+	history: PropTypes.object.isRequired,
+	router: PropTypes.object.isRequired,
+};
 
 export default AppLayout;

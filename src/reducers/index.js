@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { routerReducer } from "react-router-redux";
 
 import data from "./data.js";
 import ui from "./ui.js";
@@ -10,4 +11,5 @@ export default combineReducers({
 	ui,
 	home,
 	about,
+	router: routerReducer,
 });

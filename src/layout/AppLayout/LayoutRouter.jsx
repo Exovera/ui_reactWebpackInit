@@ -1,20 +1,29 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { Route } from "react-router-dom";
+import { ConnectedRouter } from "react-router-redux";
+
+import { AboutLoader } from "loaders";
 
 import Navbar from "layout/Navbar";
-import { AboutLoader } from "loaders";
 import Home from "pages/Home";
 
-const LayoutRouter = () => {
+const LayoutRouter = (props) => {
 	return (
-		<Router>
+		<ConnectedRouter history={props.history}>
 			<div>
-				<Navbar />
+				<Navbar path={props.router && props.router.location && props.router.location.pathname} />
 
 				<Route exact path="/" component={Home} />
 				<Route path="/about" component={AboutLoader} />
 			</div>
-		</Router>
+		</ConnectedRouter>
 	);
 };
+
+LayoutRouter.propTypes = {
+	router: PropTypes.object,
+	history: PropTypes.object.isRequired,
+};
+
 export default LayoutRouter;
