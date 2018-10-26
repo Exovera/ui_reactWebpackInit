@@ -4,6 +4,8 @@ After cloning, run `yarn install`
 
 To start: `yarn start`
 
+To build a production version in `/dist`, `yarn build`
+
 Styles are run through LESS. Add each `.import.less` file to `src/config/less/main.less`
 
 ## Routing
@@ -30,3 +32,7 @@ The current setup splits along routes (there's nothing else to split), but it wo
 
 ## Favicon
 This is injected through WebPack, so add a `favicon.ico` to the images directory and uncomment the corresponding line in both `webpack.dev.js` and `webpack.prod.js`.
+
+
+## Static files
+Any files you do not want run through the webpack build process should go in `src/static`.
