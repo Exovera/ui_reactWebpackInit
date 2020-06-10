@@ -6,12 +6,17 @@
 	"scripts": {
 		"build": "webpack --config webpack.prod.js",
 		"start": "webpack-dev-server --config webpack.dev.js --hot",
+		"deploy-lite": "aws s3 rm s3://narratives-lite --recursive && aws s3 cp --cache-control max-age=31536000 --exclude index.html dist s3://narratives-lite --recursive && aws s3 cp dist/index.html s3://narratives-lite --cache-control no-cache",
 		"test": "jest --coverage --runInBand",
 		"testcurrent": "jest --watch --runInBand -t 'Navbar'",
 		"watchtest": "jest --watch --runInBand",
 		"prettierwhole": "prettier --print-width 100 --use-tabs --trailing-comma es5 --arrow-parens always --write 'src/**/*.jsx'"
 	},
 	"dependencies": {
+		"@exovera/helpers": "^0.1.38",
+		"@exovera/icons": "^0.1.34",
+		"@exovera/narrative-tracker-variables": "^0.1.18",
+		"@exovera/style-mixins": "^0.1.0",
 		"babel-plugin-styled-components": "^1.10.0",
 		"classnames": "^2.2.5",
 		"css-loader": "^0.28.7",

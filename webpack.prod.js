@@ -7,6 +7,7 @@ const Visualizer = require("webpack-visualizer-plugin");
 
 module.exports = {
 	mode: "production",
+	devtool: "source-map",
 	resolve: {
 		modules: [path.resolve("./src"), path.resolve("./node_modules")],
 	},
