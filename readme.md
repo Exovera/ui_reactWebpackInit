@@ -36,3 +36,7 @@ This is injected through WebPack, so add a `favicon.ico` to the images directory
 
 ## Static files
 Any files you do not want run through the webpack build process should go in `src/static`.
+
+### To Do:
+
+- Replace `react-router-redux` with `connected-react-router` 
